@@ -18,7 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TemperatureActivity"></activity>
+        <activity android:name=".TemperatureActivity">
+            <intent-filter>
+                <action android:name="com.example.hackbdx.TemperatureActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
