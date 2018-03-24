@@ -9,8 +9,8 @@ import retrofit2.http.Query;
  */
 
 public interface GetTemperature {
-    String URL = "api.openweathermap.org/";
+    String URL = "https://api.openweathermap.org/";
 
     @GET("/data/2.5/forecast")
-    Call<TempData> crida(@Query("q") String nom_ciutat, @Query("appid") String key);
+    Call<TempData> crida(@Query("appid") String key, @Query("q") String nciutat);
 }

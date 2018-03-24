@@ -5,11 +5,19 @@ package com.example.hackbdx.network;
  */
 
 public class TempData {
-    private Weather main;
+    private Main main;
 
-    public Weather getMain() {
+    /*public TempData(){
+        main = new Main();
+    }*/
+
+    public Main getMain() {
         return main;
     }
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
 
 
 }

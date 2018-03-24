@@ -4,13 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.hackbdx.TemperatureActivity">
 
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Text0" />
 
     <TextView
-        android:id="@+id/text_view_id1"
-        android:layout_height="wrap_content"
+        android:id="@+id/pressure"
         android:layout_width="wrap_content"
-        android:text="Second Activity" />
+        android:layout_height="wrap_content"
+        tools:text="Text2" />
+
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Text2" />
+
+    <TextView
+        android:id="@+id/tempMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Text3" />
+
+    <TextView
+        android:id="@+id/tempMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Text4" />
 
 </LinearLayout>

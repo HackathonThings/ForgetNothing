@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ButtonListener() {
-        btn = (Button) findViewById(R.id.btnSubmit);
+        btn = findViewById(R.id.btnSubmit);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
