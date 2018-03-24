@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/myrect.xml -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hackbdx.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.hackbdx.MainActivity">
+
     <TextView
         android:id="@+id/text_view_id"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="WHERE ARE YOU GOING?" />
-    <Spinner
-        android:id="@+id/spinner1"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:entries="@array/city"
-        android:prompt="@string/city_prompt" />
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+
+        android:gravity="center"
+        android:typeface="sans"
+        android:text="WHERE ARE YOU GOING?"
+        android:elevation="2dp"
+        android:background="myrect" />/>
+
+    <EditText
+        android:id="@+id/textsitio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
     <TextView
         android:id="@+id/text_view_id1"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="HOW MANY DAYS ARE YOU STAYING" />
 
     <EditText
-        android:id="@+id/plain_text_input"
-        android:layout_height="wrap_content"
+        android:id="@+id/textnumero"
         android:layout_width="match_parent"
-        android:inputType="number"/>
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit" />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
 
-    </LinearLayout>
+</LinearLayout>
 
 
 

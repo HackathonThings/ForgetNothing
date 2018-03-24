@@ -1,18 +1,9 @@
 <resources>
-    <string name="app_name">HackBDX</string>
+    <string name="app_name">ForgetNothing</string>
     <string name="spinner_title"></string>
 
     <string name="city_prompt">Choose a country</string>
 
-    <string-array name="city">
-        <item>Malaysia</item>
-        <item>New York</item>
-        <item>Indonesia</item>
-        <item>Paris</item>
-        <item>Roma</item>
-        <item>Singapore</item>
-        <item>London</item>
-        <item>Barcelona</item>
-    </string-array>
+
 
 </resources>
