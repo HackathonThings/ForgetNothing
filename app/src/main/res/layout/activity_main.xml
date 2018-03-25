@@ -80,7 +80,27 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anything special about that trip?"
+        android:textSize="20sp"
+        android:padding="16dp"/>
 
+    <CheckBox
+        android:id="@+id/beach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beach"
+        />
+
+    <CheckBox
+        android:id="@+id/mountain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mountain"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnSubmit"

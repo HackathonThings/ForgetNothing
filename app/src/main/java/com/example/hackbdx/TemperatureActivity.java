@@ -36,8 +36,9 @@ public class TemperatureActivity extends AppCompatActivity {
     public float humidity;
     public float pressure;
     public ListView listView;
-    String[] llista;
-
+    public String[] llista;
+    public Boolean beach_list = false;
+    public Boolean mountain_list = false;
 
 
     @Override
@@ -49,6 +50,8 @@ public class TemperatureActivity extends AppCompatActivity {
         if (extras != null) {
             ciutat = (String)extras.get("ciutat");
             n_day = extras.getString("comptador");
+            beach_list = extras.getBoolean("beach");
+            mountain_list = extras.getBoolean("mountain");
         }
 
         listView = findViewById(R.id.listView);
@@ -108,8 +111,9 @@ public class TemperatureActivity extends AppCompatActivity {
     }
 
     public void inicialitzaLlista() {
-        ArrayList<String> mllista = new ArrayList<String>();
 
+
+        ArrayList<String> mllista = new ArrayList<String>();
         if (temperatura < 15 && temperatura > 5) {
             mllista.add("Jacket");
         }
@@ -117,6 +121,18 @@ public class TemperatureActivity extends AppCompatActivity {
             mllista.add("Big Warm Jacket");
             mllista.add("Gloves");
             mllista.add("Scarf");
+        }
+        if(beach_list) {
+            mllista.add("Towel");
+            mllista.add("Flip-Flops");
+            mllista.add("Suncream");
+            mllista.add("Sunglasses");
+            mllista.add("Swimwear");
+        }
+        if(mountain_list) {
+            mllista.add("Stick");
+            mllista.add("Snacks");
+            mllista.add("Mountain boots");
         }
 
         mllista.add("Underpants");
@@ -126,6 +142,7 @@ public class TemperatureActivity extends AppCompatActivity {
         mllista.add("Deodorant");
         mllista.add("Toothbrush");
         mllista.add("Toothpaste");
+        mllista.add("Umbrella");
         mllista.add("Mobile charger");
         mllista.add("Snacks");
         mllista.add("Water");

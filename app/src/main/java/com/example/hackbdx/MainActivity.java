@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.hackbdx.DataBase.EjemploDB;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 + "Lets prepare your luggage!\n"
                 + "This time, you will forget NOTHING";
         descr.setText(description);
-
         ButtonListener();
     }
 
@@ -40,9 +42,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String city = editText.getText().toString();
                 String count = editText2.getText().toString();
+                Boolean b = false;
+                Boolean m = false;
+                CheckBox check = findViewById(R.id.beach);
+                if (check.isChecked()) b = true;
+                check = findViewById(R.id.mountain);
+                if (check.isChecked()) m = true;
+
                 Intent i = new Intent("com.example.hackbdx.TemperatureActivity");
                 i.putExtra("ciutat",city);
                 i.putExtra("comptador", count);
+                i.putExtra("beach", b);
+                i.putExtra("mountain", m);
+
                 startActivity(i);
             }
         });

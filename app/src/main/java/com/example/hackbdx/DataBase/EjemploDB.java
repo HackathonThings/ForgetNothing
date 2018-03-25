@@ -23,8 +23,8 @@ public class EjemploDB extends SQLiteOpenHelper {
     private static final String SQL_CREAR = "create table "
             + TABLA_NOMBRES + "(" + COLUMNA_ID
             + " integer primary key autoincrement, " +
-            NOMBRE_CIUDAD + " text not null)" +
-            MULTIPLICADOR + "float)";
+            NOMBRE_CIUDAD + " text not null, " +
+            MULTIPLICADOR + " float)";
 
     public EjemploDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -48,6 +48,7 @@ public class EjemploDB extends SQLiteOpenHelper {
         values.put(NOMBRE_CIUDAD, seg_col);
         values.put(MULTIPLICADOR, multu);
 
+
         db.insert(TABLA_NOMBRES, null,values);
     }
 
@@ -67,29 +68,32 @@ public class EjemploDB extends SQLiteOpenHelper {
 
     }
 
-    public void obtener(int id){
+    public String obtener(int id){
 
         SQLiteDatabase db = this.getReadableDatabase();
         String[] projection = {COLUMNA_ID, NOMBRE_CIUDAD, MULTIPLICADOR};
 
-        Cursor cursor =
-                db.query(TABLA_NOMBRES,
+        Cursor cursor = db.rawQuery("SELECT * FROM TABLA_NOMBRES WHERE type = 'table'",null);
+
+        /*db.query(TABLA_NOMBRES,
                         projection,
                         " _id = ?",
                         new String[] { String.valueOf(id) },
                         null,
                         null,
                         null,
-                        null);
+                        null);*/
 
 
         if (cursor != null)
             cursor.moveToFirst();
 
-        System.out.println("El nombre es " +  cursor.getString(1) );
+        System.out.println("Tengo: " + cursor.getString(1) + cursor.getString(2) );
+        //System.out.println("El nombre es " +  cursor.getString(1) );
 
         db.close();
-
+        String a = cursor.getString(1);
+        return a;
     }
 
     public void actualizar (String nombre, int id){
