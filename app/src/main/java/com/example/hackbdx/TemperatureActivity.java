@@ -30,13 +30,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TemperatureActivity extends AppCompatActivity {
     private static final String KEY = "a5db0120056b7c1f3220d634b3148994";
     private static final String TAG = "package.hackbdx";
-    private String n_day;
+    private float n_day;
     private String ciutat;
     public float temperatura;
     public float humidity;
     public float pressure;
     public ListView listView;
-    public String[] llista;
+    public Item[] llista;
     public Boolean beach_list = false;
     public Boolean mountain_list = false;
 
@@ -49,7 +49,7 @@ public class TemperatureActivity extends AppCompatActivity {
         Bundle extras = i.getExtras();
         if (extras != null) {
             ciutat = (String)extras.get("ciutat");
-            n_day = extras.getString("comptador");
+            n_day = Float.parseFloat(extras.getString("comptador"));
             beach_list = extras.getBoolean("beach");
             mountain_list = extras.getBoolean("mountain");
         }
@@ -94,15 +94,9 @@ public class TemperatureActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                                   @Override
                                   public void run() {
-                                      /*TextView t = (TextView) findViewById(R.id.temp);
-                                      t.setText(Float.toString(temperatura));
-
-                                      TextView t3 = (TextView) findViewById(R.id.humidity);
-                                      t3.setText(Float.toString(humidity));
-
-                                      TextView t4 = (TextView) findViewById(R.id.pressure);
-                                      t4.setText(Float.toString(pressure));*/
-
+                                      TextView t = findViewById(R.id.descrip_temp);
+                                      String s = t.getText() + String.format("%.2f",temperatura);
+                                      t.setText(s);
                                   }
                               }
                 );
@@ -111,43 +105,39 @@ public class TemperatureActivity extends AppCompatActivity {
     }
 
     public void inicialitzaLlista() {
-
-
-        ArrayList<String> mllista = new ArrayList<String>();
+        ArrayList<Item> mllista = new ArrayList<Item>();
         if (temperatura < 15 && temperatura > 5) {
-            mllista.add("Jacket");
+            mllista.add(new Item("Jacket", 1));
         }
         else if(temperatura < 5) {
-            mllista.add("Big Warm Jacket");
-            mllista.add("Gloves");
-            mllista.add("Scarf");
+            mllista.add(new Item("Big Warm Jacket", 1));
+            mllista.add(new Item("Gloves", 1));
+            mllista.add(new Item("Scarf", 1));
         }
         if(beach_list) {
-            mllista.add("Towel");
-            mllista.add("Flip-Flops");
-            mllista.add("Suncream");
-            mllista.add("Sunglasses");
-            mllista.add("Swimwear");
+            mllista.add(new Item("Towel", 1));
+            mllista.add(new Item("Flip-Flops", 1));
+            mllista.add(new Item("Suncream", 1));
+            mllista.add(new Item("Sunglasses", 1));
+            mllista.add(new Item("Swimwear", n_day));
         }
         if(mountain_list) {
-            mllista.add("Stick");
-            mllista.add("Snacks");
-            mllista.add("Mountain boots");
+            mllista.add(new Item("Stick", 1));
+            mllista.add(new Item("Mountain boots", 1));
         }
 
-        mllista.add("Underpants");
-        mllista.add("Socks");
-        mllista.add("T-shirt");
-        mllista.add("Trousers");
-        mllista.add("Deodorant");
-        mllista.add("Toothbrush");
-        mllista.add("Toothpaste");
-        mllista.add("Umbrella");
-        mllista.add("Mobile charger");
-        mllista.add("Snacks");
-        mllista.add("Water");
+        mllista.add(new Item("Underpants", n_day));
+        mllista.add(new Item("Socks", n_day));
+        mllista.add(new Item("T-shirt", n_day));
+        mllista.add(new Item("Trousers", n_day));
+        mllista.add(new Item("Deodorant", 1));
+        mllista.add(new Item("Toothbrush", 1));
+        mllista.add(new Item("Toothpaste", 1));
+        mllista.add(new Item("Book", n_day/15));
+        mllista.add(new Item("Umbrella", 1));
+        mllista.add(new Item("Mobile charger", 1));
 
-        llista = new String[mllista.size()];
+        llista = new Item[mllista.size()];
         llista = mllista.toArray(llista);
     }
 }

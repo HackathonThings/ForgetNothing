@@ -9,12 +9,12 @@ import android.widget.CheckedTextView;
 import android.widget.Toast;
 
 public class CustomAdapter extends BaseAdapter {
-    String[] names;
-    Context context;
+    public Item[] names;
+    public Context context;
     LayoutInflater inflter;
-    String value;
+    public String value;
 
-    public CustomAdapter(Context context, String[] names) {
+    public CustomAdapter(Context context, Item[] names) {
         this.context = context;
         this.names = names;
         inflter = (LayoutInflater.from(context));
@@ -40,7 +40,9 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         view = inflter.inflate(R.layout.list_item, null);
         final CheckedTextView simpleCheckedTextView = view.findViewById(R.id.simpleCheckedTextView);
-        simpleCheckedTextView.setText(names[position]);
+        int i = (int)names[position].multiplicador;
+        String aux = names[position].nom + "    x" + Integer.toString(i);
+        simpleCheckedTextView.setText(aux);
 // perform on Click Event Listener on CheckedTextView
         simpleCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,7 @@ public class CustomAdapter extends BaseAdapter {
                     simpleCheckedTextView.setCheckMarkDrawable(R.drawable.checked);
                     simpleCheckedTextView.setChecked(true);
                 }
-                Toast.makeText(context, value, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, value, Toast.LENGTH_SHORT).show();
             }
         });
         return view;
