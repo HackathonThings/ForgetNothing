@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hackbdx.network.GetTemperature;
 import com.example.hackbdx.network.Main;
 import com.example.hackbdx.network.TempData;
+import com.example.hackbdx.CustomAdapter;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -22,15 +26,17 @@ import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
+//TODO: Al activity_temperature.xml posar ListView com a root ViewGroup
 public class TemperatureActivity extends AppCompatActivity {
     private static final String KEY = "a5db0120056b7c1f3220d634b3148994";
     private static final String TAG = "package.hackbdx";
     private String n_day;
     private String ciutat;
-    float temperatura;
-    float humidity;
-    float pressure;
+    public float temperatura;
+    public float humidity;
+    public float pressure;
+    public ListView listView;
+    String[] llista;
 
 
 
@@ -44,6 +50,12 @@ public class TemperatureActivity extends AppCompatActivity {
             ciutat = (String)extras.get("ciutat");
             n_day = extras.getString("comptador");
         }
+
+        listView = findViewById(R.id.listView);
+        inicialitzaLlista();
+        CustomAdapter customAdapter = new CustomAdapter(TemperatureActivity.this, llista);
+        listView.setAdapter(customAdapter);
+
         Log.d(TAG, "Torno a ser al main jeje");
         try {
             run("https://api.openweathermap.org/data/2.5/forecast?q=" + ciutat + "&appid=a5db0120056b7c1f3220d634b3148994");
@@ -79,18 +91,46 @@ public class TemperatureActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                                   @Override
                                   public void run() {
-                                      TextView t = (TextView) findViewById(R.id.temp);
+                                      /*TextView t = (TextView) findViewById(R.id.temp);
                                       t.setText(Float.toString(temperatura));
 
                                       TextView t3 = (TextView) findViewById(R.id.humidity);
                                       t3.setText(Float.toString(humidity));
 
                                       TextView t4 = (TextView) findViewById(R.id.pressure);
-                                      t4.setText(Float.toString(pressure));
+                                      t4.setText(Float.toString(pressure));*/
+
                                   }
                               }
                 );
             }
         });
+    }
+
+    public void inicialitzaLlista() {
+        ArrayList<String> mllista = new ArrayList<String>();
+
+        if (temperatura < 15 && temperatura > 5) {
+            mllista.add("Jacket");
+        }
+        else if(temperatura < 5) {
+            mllista.add("Big Warm Jacket");
+            mllista.add("Gloves");
+            mllista.add("Scarf");
+        }
+
+        mllista.add("Underpants");
+        mllista.add("Socks");
+        mllista.add("T-shirt");
+        mllista.add("Trousers");
+        mllista.add("Deodorant");
+        mllista.add("Toothbrush");
+        mllista.add("Toothpaste");
+        mllista.add("Mobile charger");
+        mllista.add("Snacks");
+        mllista.add("Water");
+
+        llista = new String[mllista.size()];
+        llista = mllista.toArray(llista);
     }
 }
