@@ -1,40 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/myrect.xml -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.hackbdx.MainActivity"
-    android:orientation="vertical">
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/app_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding = "20dp"
+        android:gravity="center"
+        android:textStyle="italic"/>
+
     <TextView
         android:id="@+id/text_view_id"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="WHERE ARE YOU GOING?" />
-    <Spinner
-        android:id="@+id/spinner1"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:entries="@array/city"
-        android:prompt="@string/city_prompt" />
-    <TextView
-        android:id="@+id/text_view_id1"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="HOW MANY DAYS ARE YOU STAYING" />
+        android:textSize="32sp"
+        android:text="WHERE ARE YOU GOING?"/>
 
-    <EditText
-        android:id="@+id/plain_text_input"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:inputType="number"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/ubi_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ubication"/>
+
+        <EditText
+            android:id="@+id/textsitio"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:inputType="text" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_id1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAYS YOU ARE OUT?"
+        android:textSize="32sp"
+        android:paddingTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/clock_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/clock"/>
+
+        <EditText
+            android:id="@+id/textnumero"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
 
 
 

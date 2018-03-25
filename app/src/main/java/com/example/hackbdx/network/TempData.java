@@ -7,12 +7,5 @@ import java.util.List;
  */
 
 public class TempData {
-
     public List<Entry> list;
-    /*public TempData(){
-        main = new Main();
-    }*/
-
-
-
 }
