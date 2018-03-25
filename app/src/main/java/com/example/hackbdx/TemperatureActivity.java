@@ -8,25 +8,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hackbdx.network.GetTemperature;
-import com.example.hackbdx.network.Main;
+
 import com.example.hackbdx.network.TempData;
 import com.example.hackbdx.CustomAdapter;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-//TODO: Al activity_temperature.xml posar ListView com a root ViewGroup
+
+
 public class TemperatureActivity extends AppCompatActivity {
     private static final String KEY = "a5db0120056b7c1f3220d634b3148994";
     private static final String TAG = "package.hackbdx";
@@ -59,7 +54,6 @@ public class TemperatureActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter(TemperatureActivity.this, llista);
         listView.setAdapter(customAdapter);
 
-        Log.d(TAG, "Torno a ser al main jeje");
         try {
             run("https://api.openweathermap.org/data/2.5/forecast?q=" + ciutat + "&appid=a5db0120056b7c1f3220d634b3148994");
 
