@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">ForgetNothing</string>
-    <string name="spinner_title"></string>
+    <string name="question1">where are you going?</string>
+    <string name="question2">days are you out?</string>
+    <string name="submit_button">submit</string>
     <string name="city_prompt">Choose a country</string>
+    <string name="title2nA">the temperature is </string>
 
 
 

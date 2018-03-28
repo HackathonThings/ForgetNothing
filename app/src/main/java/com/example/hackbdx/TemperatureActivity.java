@@ -32,8 +32,10 @@ public class TemperatureActivity extends AppCompatActivity {
     public float pressure;
     public ListView listView;
     public Item[] llista;
-    public Boolean beach_list = false;
-    public Boolean mountain_list = false;
+    public Boolean beach_list;
+    public Boolean mountain_list;
+    public Boolean party_list;
+
 
 
     @Override
@@ -47,6 +49,7 @@ public class TemperatureActivity extends AppCompatActivity {
             n_day = Float.parseFloat(extras.getString("comptador"));
             beach_list = extras.getBoolean("beach");
             mountain_list = extras.getBoolean("mountain");
+            party_list = extras.getBoolean("party");
         }
 
         listView = findViewById(R.id.listView);
@@ -89,7 +92,7 @@ public class TemperatureActivity extends AppCompatActivity {
                                   @Override
                                   public void run() {
                                       TextView t = findViewById(R.id.descrip_temp);
-                                      String s = t.getText() + String.format("%.2f",temperatura);
+                                      String s = t.getText() + " " + String.format("%.2f",temperatura) + " ºC";
                                       t.setText(s);
                                   }
                               }
@@ -100,6 +103,10 @@ public class TemperatureActivity extends AppCompatActivity {
 
     public void inicialitzaLlista() {
         ArrayList<Item> mllista = new ArrayList<Item>();
+        //TODO:posar radioButton si podré o no netejar la roba
+        //TODO:posar si es viatge nacional o a l'estranger
+        //TODO:posar mida de la maleta que tinc
+        mllista.add(new Item("Passaport / Dni", 1));
         if (temperatura < 15 && temperatura > 5) {
             mllista.add(new Item("Jacket", 1));
         }
@@ -118,6 +125,13 @@ public class TemperatureActivity extends AppCompatActivity {
         if(mountain_list) {
             mllista.add(new Item("Stick", 1));
             mllista.add(new Item("Mountain boots", 1));
+        }
+        if(party_list) {
+            mllista.add(new Item("Tops de festa", 1 + n_day/2 ));
+            mllista.add(new Item("Vestit", 1));
+            mllista.add(new Item("Sabates festa", 1));
+            mllista.add(new Item("Make Up", 1));
+            mllista.add(new Item("Jersei nit", 1));
         }
 
         mllista.add(new Item("Underpants", n_day));

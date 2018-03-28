@@ -1,115 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- res/drawable/myrect.xml -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.hackbdx.MainActivity"
-    android:padding="16dp">
-
-    <TextView
-        android:id="@+id/app_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding = "20dp"
-        android:gravity="center"
-        android:textStyle="italic"/>
-
-    <TextView
-        android:id="@+id/text_view_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="WHERE ARE YOU GOING?"/>
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:orientation="vertical"
+        tools:context="com.example.hackbdx.MainActivity"
+        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/ubi_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ubication"/>
-
-        <EditText
-            android:id="@+id/textsitio"
+        <TextView
+            android:id="@+id/app_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="City name"/>
+            android:textSize="16sp"
+            android:padding = "20dp"
+            android:gravity="center"
+            android:textStyle="italic"/>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_view_id1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DAYS YOU ARE OUT?"
-        android:textSize="32sp"
-        android:paddingTop="16dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
-
-        <ImageView
-            android:id="@+id/clock_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/clock"/>
-
-        <EditText
-            android:id="@+id/textnumero"
-            android:layout_width="50dp"
+        <TextView
+            android:id="@+id/text_view_id"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="#"
-            android:gravity="center_horizontal"/>
+            android:textSize= "25sp"
+            android:text="@string/question1"
+            android:textAllCaps="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ubi_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ubication"/>
+
+            <EditText
+                android:id="@+id/textsitio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="City name"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_view_id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/question2"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            android:paddingTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/clock_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/clock"/>
+
+            <EditText
+                android:id="@+id/textnumero"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="#"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/gender"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/unisex"/>
+
+            <RadioGroup
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cleaning_clothes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Will you clean your clothes?" />
+
+                <RadioButton
+                    android:id="@+id/radio_b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes" />
+
+
+                <RadioButton
+                    android:id="@+id/radio_b2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anything special about that trip?"
+            android:textSize="20sp"
+            android:padding="16dp"/>
+
+        <CheckBox
+            android:id="@+id/beach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beach"
+            android:layout_marginTop="8dp"
+            />
+
+        <CheckBox
+            android:id="@+id/mountain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mountain"
+            android:layout_marginTop="8dp"/>
+
+        <CheckBox
+            android:id="@+id/party"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Party"
+            android:layout_marginTop="8dp"/>
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_button"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/explain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Anything special about that trip?"
-        android:textSize="20sp"
-        android:padding="16dp"/>
-
-    <CheckBox
-        android:id="@+id/beach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Beach"
-        />
-
-    <CheckBox
-        android:id="@+id/mountain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mountain"
-        android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_gravity="center"/>
-
-</LinearLayout>
-
-
+</ScrollView>
 

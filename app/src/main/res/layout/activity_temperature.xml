@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hackbdx.TemperatureActivity">
+    tools:context="com.example.hackbdx.TemperatureActivity"
+    >
 
     <TextView
         android:id="@+id/descrip_temp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="the temperature is "
+        android:text="@string/title2nA"
         android:textAllCaps="true"
         android:textSize="20sp"
         android:textStyle="italic|bold"
